@@ -1,2 +1,6 @@
 #!/usr/bin/env node
-console.log('Welcome to the Brain Games!');
+
+// подключение src/index.js
+import welcome from '..';
+
+welcome();
