@@ -4,7 +4,7 @@
   "description": "hexlet first project",
   "main": "brain-games.js",
   "bin": {
-        "brain-games": "./src/bin/brain-games.js"
+    "brain-games": "./src/bin/brain-games.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/andryushque/frontend-project-lvl1/issues"
   },
-  "homepage": "https://github.com/andryushque/frontend-project-lvl1#readme"
+  "homepage": "https://github.com/andryushque/frontend-project-lvl1#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.0",
+    "@babel/node": "^7.7.0",
+    "@babel/preset-env": "^7.7.1"
+  }
 }
