@@ -5,6 +5,4 @@
 
 [![Build Status](https://travis-ci.org/andryushque/frontend-project-lvl1.svg?branch=master)](https://travis-ci.org/andryushque/frontend-project-lvl1)
 
-[![asciicast](https://asciinema.org/a/Vqm7LnhdEwwS0MPnk1wuJOt7b.svg)](https://asciinema.org/a/Vqm7LnhdEwwS0MPnk1wuJOt7b)
-
-[![asciicast](https://asciinema.org/a/6ubthl6HdTSrGPATS5n53EUXO.svg)](https://asciinema.org/a/6ubthl6HdTSrGPATS5n53EUXO)
+[![asciicast](https://asciinema.org/a/91JsMMD64aaEhOlRoFWcGN7z7.svg)](https://asciinema.org/a/91JsMMD64aaEhOlRoFWcGN7z7)
