@@ -12,10 +12,10 @@ const brainGamesEven = () => {
   const name = readlineSync.question('Please, enter your name here: ');
   console.log(`Hello, ${name}!!!`);
   console.log();
-    
+
   // количество раундов игры
   const roundCount = 3;
-    
+
   // функция проверки четности числа
   const isEven = (number) => number % 2 === 0;
 
