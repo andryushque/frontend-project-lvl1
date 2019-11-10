@@ -5,4 +5,15 @@
 
 [![Build Status](https://travis-ci.org/andryushque/frontend-project-lvl1.svg?branch=master)](https://travis-ci.org/andryushque/frontend-project-lvl1)
 
-[![asciicast](https://asciinema.org/a/GiH5Vcocw6odCn9kyOFSxI0fs.svg)](https://asciinema.org/a/GiH5Vcocw6odCn9kyOFSxI0fs)
+install + brain-games
+[![asciicast](https://asciinema.org/a/zoJmbdBdjIJmn2ajSOCbhPj9C.svg)](https://asciinema.org/a/zoJmbdBdjIJmn2ajSOCbhPj9C)
+
+brain-even
+[![asciicast](https://asciinema.org/a/bGuiQxuygdHwnu9ELkUGZ7EUV.svg)](https://asciinema.org/a/bGuiQxuygdHwnu9ELkUGZ7EUV)
+
+brain-calc
+[![asciicast](https://asciinema.org/a/SmqUEexLpQSQePGCjywIil7oT.svg)](https://asciinema.org/a/SmqUEexLpQSQePGCjywIil7oT)
+
+brain-gcd
+[![asciicast](https://asciinema.org/a/DTT01VmLL0X9ShFhMHP6f4i5Y.svg)](https://asciinema.org/a/DTT01VmLL0X9ShFhMHP6f4i5Y)
+
