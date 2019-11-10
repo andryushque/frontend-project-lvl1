@@ -1,68 +1,52 @@
-import readlineSync from 'readline-sync';
+import { cons, car, cdr } from '@hexlet/pairs';
+import brainGamesEngine from '../gameEngine';
+
 
 // игра #2 "Калькулятор"
-const brainGamesCalc = () => {
-  // приветствие
-  console.log('Welcome to the Brain Games!');
-  // правила игры
-  const gameRules = 'What is the result of the expression?';
-  console.log(gameRules);
-  console.log();
-  // ввод имени игрока
-  const name = readlineSync.question('Please, enter your name here: ');
-  console.log(`Hello, ${name}!!!`);
-  console.log();
+// правила игры
+const gameRules = 'What is the result of the expression?';
 
-  // количество раундов игры
-  const roundCount = 3;
+// описание одного раунда игры
+const gameRound = () => {
+  // верхняя и нижняя границы генератора случайных чисел
+  const min = 2;
+  const max = 20;
+  // сам генератор - генерируем два числа
+  const number1 = Math.floor(Math.random() * (max - min)) + min;
+  const number2 = Math.floor(Math.random() * (max - min)) + min;
 
-  // логика самой игры
-  for (let i = 0; i < roundCount; i += 1) {
-    // верхняя и нижняя границы генератора случайных чисел
-    const min = 1;
-    const max = 20;
-    // сам генератор - генерируем два числа
-    const number1 = Math.floor(Math.random() * (max - min)) + min;
-    const number2 = Math.floor(Math.random() * (max - min)) + min;
+  // строка арифметических операторов
+  const operationString = '+-*';
 
-    // строка арифметических операторов
-    const operationString = '+-*';
-
-    // генератор случайного арифметического оператора
-    const a = 0;
-    const b = 2;
-    // операция - случайный элемент строки
-    const j = Math.floor(Math.random() * (b - a + 1)) + a;
-    const operation = operationString[j];
-    // вопрос, выводимый на экран
-    const question = `${number1} ${operation} ${number2}`;
-    // правильный ответ на вопрос
-    const operationSelect = () => {
-      if (operation === '+') {
-        return number1 + number2;
-      }
-      if (operation === '-') {
-        return number1 - number2;
-      }
-      return number1 * number2;
-    };
-    // переводим правильный ответ в строку, так как введенный ответ тоже строка
-    const correctAnswer = String(operationSelect());
-
-    // выводим вопрос
-    console.log(`Question: ${question}`);
-    // на экран выводится просьба ввести ответ
-    const yourAnswer = readlineSync.question('Your answer is: ');
-    // сравниваем введенный ответ с правильным
-    if (yourAnswer === correctAnswer) {
-      console.log('Correct!');
-    } else {
-      console.log(`'${yourAnswer}' is wrong answer ;((. Correct answer was '${correctAnswer}' =)`);
-      console.log(`Let's try again, ${name}!`);
-      return;
+  // генератор случайного арифметического оператора
+  // верхняя и нижняя границы генератора случайных чисел
+  // соответствуют первому и последнему индексу строки
+  const a = 0;
+  const b = 2;
+  // операция - случайный элемент строки
+  const j = Math.floor(Math.random() * (b - a + 1)) + a;
+  const operation = operationString[j];
+  // вопрос, выводимый на экран
+  const question = `${number1} ${operation} ${number2}`;
+  // правильный ответ на вопрос
+  const answer = () => {
+    if (operation === '+') {
+      return number1 + number2;
     }
-  } // цикл for
-  console.log(`Congratulations, ${name}!`);
-}; // brainGamesCalc
+    if (operation === '-') {
+      return number1 - number2;
+    }
+    return number1 * number2;
+  };
+  // переводим правильный ответ в строку, так как введенный ответ тоже строка
+  const correctAnswer = String(answer());
+  // пара вопрос-правильный ответ
+  return cons(question, correctAnswer);
+};
 
-export default brainGamesCalc;
+// из каждого раунда получаем вопрос и правильный ответ на него
+const gameQuestion = (singleRound) => car(singleRound);
+const gameAnswer = (singleRound) => cdr(singleRound);
+
+// экспорт по умолчанию (импорт в исполняемом файле игры)
+export default () => brainGamesEngine(gameRules, gameRound, gameQuestion, gameAnswer);
