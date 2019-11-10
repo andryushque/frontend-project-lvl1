@@ -33,9 +33,6 @@ const gameRound = () => {
     } else {
       progression += `${firstMember + (n * diff)} `; // по формуле n-го члена прогрессии
     }
-
-    /*
-    progression += (n === number) ? '.. ' : `${firstMember + (n * diff)} `; */
   }
   // вопрос, выводимый на экран
   const question = progression;
