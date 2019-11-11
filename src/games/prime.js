@@ -22,10 +22,9 @@ const isPrime = (number) => {
 
 // описание одного раунда игры
 const gameRound = () => {
-  // верхняя и нижняя границы генератора случайных чисел
+  // вопрос, выводимый на экран - случайное число
   const a = 1;
   const b = 100;
-  // вопрос, выводимый на экран - случайное число
   const question = randomizer(a, b);
   // правильный ответ на вопрос
   const correctAnswer = isPrime(question) ? 'yes' : 'no';
