@@ -23,10 +23,10 @@ const isPrime = (number) => {
 // описание одного раунда игры
 const gameRound = () => {
   // верхняя и нижняя границы генератора случайных чисел
-  const min = 1;
-  const max = 100;
+  const a = 1;
+  const b = 100;
   // вопрос, выводимый на экран - случайное число
-  const question = randomizer(min, max);
+  const question = randomizer(a, b);
   // правильный ответ на вопрос
   const correctAnswer = isPrime(question) ? 'yes' : 'no';
   // пара вопрос-правильный ответ

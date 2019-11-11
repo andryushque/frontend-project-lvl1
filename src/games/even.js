@@ -13,10 +13,10 @@ const isEven = (number) => number % 2 === 0;
 // описание одного раунда игры
 const gameRound = () => {
   // верхняя и нижняя границы генератора случайных чисел
-  const min = 1;
-  const max = 256;
+  const m = 1;
+  const n = 256;
   // вопрос, выводимый на экран
-  const question = randomizer(min, max);
+  const question = randomizer(m, n);
   // правильный ответ на вопрос
   const correctAnswer = isEven(question) ? 'yes' : 'no';
   // пара вопрос-правильный ответ
