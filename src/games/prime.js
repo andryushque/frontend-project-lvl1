@@ -1,4 +1,5 @@
 import { cons, car, cdr } from '@hexlet/pairs';
+import randomizer from '../randomizer';
 import brainGamesEngine from '../gameEngine';
 
 
@@ -24,8 +25,8 @@ const gameRound = () => {
   // верхняя и нижняя границы генератора случайных чисел
   const min = 1;
   const max = 100;
-  // вопрос, выводимый на экран
-  const question = Math.floor(Math.random() * (max - min)) + min;
+  // вопрос, выводимый на экран - случайное число
+  const question = randomizer(min, max);
   // правильный ответ на вопрос
   const correctAnswer = isPrime(question) ? 'yes' : 'no';
   // пара вопрос-правильный ответ

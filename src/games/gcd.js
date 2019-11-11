@@ -1,4 +1,5 @@
 import { cons, car, cdr } from '@hexlet/pairs';
+import randomizer from '../randomizer';
 import brainGamesEngine from '../gameEngine';
 
 
@@ -11,9 +12,9 @@ const gameRound = () => {
   // верхняя и нижняя границы генератора случайных чисел
   const min = 1;
   const max = 100;
-  // сам генератор - генерируем два числа
-  const number1 = Math.floor(Math.random() * (max - min)) + min;
-  const number2 = Math.floor(Math.random() * (max - min)) + min;
+  // генерируем два случайных числа
+  const number1 = randomizer(min, max);
+  const number2 = randomizer(min, max);
 
   // вопрос, выводимый на экран
   const question = `${number1} ${number2}`;

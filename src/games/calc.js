@@ -1,4 +1,5 @@
 import { cons, car, cdr } from '@hexlet/pairs';
+import randomizer from '../randomizer';
 import brainGamesEngine from '../gameEngine';
 
 
@@ -11,9 +12,9 @@ const gameRound = () => {
   // верхняя и нижняя границы генератора случайных чисел
   const min = 2;
   const max = 20;
-  // сам генератор - генерируем два числа
-  const number1 = Math.floor(Math.random() * (max - min)) + min;
-  const number2 = Math.floor(Math.random() * (max - min)) + min;
+  // генерируем два случайных числа
+  const number1 = randomizer(min, max);
+  const number2 = randomizer(min, max);
 
   // строка арифметических операторов
   const operationString = '+-*';
@@ -24,7 +25,7 @@ const gameRound = () => {
   const a = 0;
   const b = 2;
   // операция - случайный элемент строки
-  const j = Math.floor(Math.random() * (b - a + 1)) + a;
+  const j = randomizer(a, b);
   const operation = operationString[j];
   // вопрос, выводимый на экран
   const question = `${number1} ${operation} ${number2}`;

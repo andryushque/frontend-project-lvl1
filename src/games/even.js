@@ -1,4 +1,5 @@
 import { cons, car, cdr } from '@hexlet/pairs';
+import randomizer from '../randomizer';
 import brainGamesEngine from '../gameEngine';
 
 
@@ -15,7 +16,7 @@ const gameRound = () => {
   const min = 1;
   const max = 256;
   // вопрос, выводимый на экран
-  const question = Math.floor(Math.random() * (max - min)) + min;
+  const question = randomizer(min, max);
   // правильный ответ на вопрос
   const correctAnswer = isEven(question) ? 'yes' : 'no';
   // пара вопрос-правильный ответ

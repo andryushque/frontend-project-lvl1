@@ -1,4 +1,5 @@
 import { cons, car, cdr } from '@hexlet/pairs';
+import randomizer from '../randomizer';
 import brainGamesEngine from '../gameEngine';
 
 
@@ -13,17 +14,17 @@ const gameRound = () => {
   // случайный первый элемент прогрессии
   const minFirstMemb = 1;
   const maxFirstMemb = 100;
-  const firstMember = Math.floor(Math.random() * (maxFirstMemb - minFirstMemb)) + minFirstMemb;
+  const firstMember = randomizer(minFirstMemb, maxFirstMemb);
 
   // случайный шаг прогрессии
   const minDiff = 1;
   const maxDiff = 10;
-  const diff = Math.floor(Math.random() * (maxDiff - minDiff)) + minDiff;
+  const diff = randomizer(minDiff, maxDiff);
 
   // случайный номер пропущенного элемента
   const minNumber = 1;
   const maxNumber = 9;
-  const number = Math.floor(Math.random() * (maxNumber - minNumber)) + minNumber;
+  const number = randomizer(minNumber, maxNumber);
 
   // генератор прогрессии
   let progression = '';
