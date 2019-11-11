@@ -3,7 +3,6 @@
   "version": "1.6.0",
   "description": "Hexlet Project#1 - Brain Games",
   "keywords": "hexlet frontend javascript brain-games",
-  "main": "",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
     "brain-even": "dist/bin/brain-even.js",
@@ -24,7 +23,7 @@
     "type": "git",
     "url": "git+https://github.com/andryushque/frontend-project-lvl1.git"
   },
-  "author": "Andrey Ustinov",
+  "author": "Andrey Ustinov a.k.a andryushque",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/andryushque/frontend-project-lvl1/issues"
@@ -32,7 +31,6 @@
   "homepage": "https://github.com/andryushque/frontend-project-lvl1#readme",
   "dependencies": {
     "@hexlet/pairs": "^1.0.10",
-    "eslint": "^6.6.0",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {
@@ -41,6 +39,7 @@
     "@babel/node": "^7.7.0",
     "@babel/preset-env": "^7.7.1",
     "babel-eslint": "^10.0.3",
+    "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-import": "^2.18.2"
