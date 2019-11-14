@@ -1,54 +1,40 @@
-import { cons, car, cdr } from '@hexlet/pairs';
 import randomizer from '../randomizer';
-import brainGamesEngine from '../gameEngine';
+import { gameEngine, roundQuestionAnswer } from '../gameEngine';
 
+const minFirstMember = 1;
+const maxFirstMember = 100;
 
-// игра #4 "Арифметическая прогрессия"
-// правила игры
-const gameRules = 'What number is missing in the progression?';
+const minDifference = 1;
+const maxDifference = 10;
 
-// описание одного раунда игры
-const gameRound = () => {
-  // количество членов прогрессии
-  const membersCount = 10;
-  // случайный первый элемент прогрессии
-  const minFirstMemb = 1;
-  const maxFirstMemb = 100;
-  const firstMember = randomizer(minFirstMemb, maxFirstMemb);
+const minPosition = 1;
+const maxPosition = 9;
 
-  // случайный шаг прогрессии
-  const minDiff = 1;
-  const maxDiff = 10;
-  const diff = randomizer(minDiff, maxDiff);
+const membersCount = 10;
 
-  // случайный номер пропущенного элемента
-  const minNumber = 1;
-  const maxNumber = 9;
-  const number = randomizer(minNumber, maxNumber);
+const runProgressionGame = () => {
+  const gameRules = 'What number is missing in the progression?';
+  const gameRound = () => {
+    const firstMember = randomizer(minFirstMember, maxFirstMember);
+    const difference = randomizer(minDifference, maxDifference);
+    const positionOfMissingNumber = randomizer(minPosition, maxPosition);
 
-  // генератор прогрессии
-  let progression = '';
-  for (let n = 0; n < membersCount; n += 1) {
-    if (n === number) {
-      progression += '.. '; // записываем две точки (рандомный пропущенный элемент)
-    } else {
-      progression += `${firstMember + (n * diff)} `; // по формуле n-го члена прогрессии
+    let progression = '';
+    for (let n = 0; n < membersCount; n += 1) {
+      if (n === positionOfMissingNumber) {
+        progression += '.. ';
+      } else {
+        progression += `${firstMember + (n * difference)} `;
+      }
     }
-  }
-  // вопрос, выводимый на экран
-  const question = progression;
-  // правильный ответ на вопрос
-  const answer = firstMember + (number * diff); // по формуле n-го члена прогрессии;
-  // переводим правильный ответ в строку, так как введенный ответ тоже строка
-  const correctAnswer = String(answer);
 
-  // пара вопрос-правильный ответ
-  return cons(question, correctAnswer);
+    const question = progression;
+    const answer = firstMember + (positionOfMissingNumber * difference);
+    const correctAnswer = String(answer);
+    return roundQuestionAnswer(question, correctAnswer);
+  };
+
+  gameEngine(gameRules, gameRound);
 };
 
-// из каждого раунда получаем вопрос и правильный ответ на него
-const gameQuestion = (singleRound) => car(singleRound);
-const gameAnswer = (singleRound) => cdr(singleRound);
-
-// экспорт по умолчанию (импорт в исполняемом файле игры)
-export default () => brainGamesEngine(gameRules, gameRound, gameQuestion, gameAnswer);
+export default runProgressionGame;

@@ -1,40 +1,39 @@
+import { cons, car, cdr } from '@hexlet/pairs';
 import readlineSync from 'readline-sync';
 
-// количество раундов игры
+const roundQuestionAnswer = (question, answer) => cons(question, answer);
+const getQuestion = (round) => car(round);
+const getAnswer = (round) => cdr(round);
+
 const roundCount = 3;
 
-// движок для игр
-const brainGamesEngine = (gameRules, gameRound, gameQuestion, gameAnswer) => {
-  // приветствие!
+const gameEngine = (gameRules, gameRound) => {
   console.log('Welcome to the Brain Games!');
-  // правила игры (описаны в файле игры)
   console.log(gameRules);
   console.log();
-  // ввод имени игрока
+
   const name = readlineSync.question('Please, enter your name here: ');
   console.log(`Hello, ${name}!!!`);
   console.log();
 
-  // сама игра
   for (let i = 0; i < roundCount; i += 1) {
-    // gameRound - раунд игры (описан в файле игры)
     const singleRound = gameRound();
+    const gameQuestion = getQuestion(singleRound);
+    const correctAnswer = getAnswer(singleRound);
 
-    // gameQuestion - вопрос раунда (описан в файле игры)
-    console.log(`Question: ${gameQuestion(singleRound)}`);
-    // gameAnswer - правильный ответ на вопрос раунда (описан в файле игры)
+    console.log(`Question: ${gameQuestion}`);
+
     const yourAnswer = readlineSync.question('Your answer is: ');
-    // сравниваем введенный ответ с правильным
-    if (yourAnswer === gameAnswer(singleRound)) {
+
+    if (yourAnswer === correctAnswer) {
       console.log('Correct!');
     } else {
-      console.log(`'${yourAnswer}' is wrong answer ;((. Correct answer was '${gameAnswer(singleRound)}' =)`);
+      console.log(`'${yourAnswer}' is wrong answer ;((. Correct answer was '${correctAnswer}' =)`);
       console.log(`Let's try again, ${name}!`);
       return;
     }
-  } // }>> конец цикла for
+  }
   console.log(`Congratulations, ${name}!`);
-}; // }>> конец функции brainGamesEngine
+};
 
-// экспорт по умолчанию (импорт - в модуле с конкретной игрой)
-export default brainGamesEngine;
+export { gameEngine, roundQuestionAnswer };

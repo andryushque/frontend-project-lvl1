@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-// подключение игры calc
-import game from '../games/calc';
+import runCalcGame from '../games/calc';
 
-game();
+runCalcGame();

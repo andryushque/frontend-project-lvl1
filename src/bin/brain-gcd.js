@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-// подключение игры gcd
-import game from '../games/gcd';
+import runGreatestCommonDivisorGame from '../games/gcd';
 
-game();
+runGreatestCommonDivisorGame();

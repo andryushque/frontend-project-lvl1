@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-// подключение игры prime
-import game from '../games/prime';
+import runPrimeGame from '../games/prime';
 
-game();
+runPrimeGame();

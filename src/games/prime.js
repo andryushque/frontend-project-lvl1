@@ -1,13 +1,6 @@
-import { cons, car, cdr } from '@hexlet/pairs';
 import randomizer from '../randomizer';
-import brainGamesEngine from '../gameEngine';
+import { gameEngine, roundQuestionAnswer } from '../gameEngine';
 
-
-// игра #5 "Простое ли число?"
-// правила игры
-const gameRules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-
-// функция проверки числа
 const isPrime = (number) => {
   if (number <= 1) {
     return false;
@@ -19,22 +12,19 @@ const isPrime = (number) => {
   }
   return true;
 };
+const minNumber = 1;
+const maxNumber = 256;
 
-// описание одного раунда игры
-const gameRound = () => {
-  // вопрос, выводимый на экран - случайное число
-  const a = 1;
-  const b = 100;
-  const question = randomizer(a, b);
-  // правильный ответ на вопрос
-  const correctAnswer = isPrime(question) ? 'yes' : 'no';
-  // пара вопрос-правильный ответ
-  return cons(question, correctAnswer);
+const runPrimeGame = () => {
+  const gameRules = 'Answer "yes" if given number is prime, otherwise answer "no".';
+  const gameRound = () => {
+    const question = randomizer(minNumber, maxNumber);
+    const correctAnswer = isPrime(question) ? 'yes' : 'no';
+
+    return roundQuestionAnswer(question, correctAnswer);
+  };
+
+  gameEngine(gameRules, gameRound);
 };
 
-// из каждого раунда получаем вопрос и правильный ответ на него
-const gameQuestion = (singleRound) => car(singleRound);
-const gameAnswer = (singleRound) => cdr(singleRound);
-
-// экспорт по умолчанию (импорт в исполняемом файле игры)
-export default () => brainGamesEngine(gameRules, gameRound, gameQuestion, gameAnswer);
+export default runPrimeGame;
