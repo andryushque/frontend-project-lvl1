@@ -9,9 +9,8 @@ Five mini-games launched from command line.
 ## Installation and usage
 ```sh
 $ npm install -g hexlet-brain-games-andryushque
-$ brain-games
 ```
-[![asciicast](https://asciinema.org/a/280617.svg)](https://asciinema.org/a/280617)
+[![asciicast](https://asciinema.org/a/281293.svg)](https://asciinema.org/a/281293)
 
 ```sh
 $ brain-even
