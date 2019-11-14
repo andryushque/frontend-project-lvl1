@@ -19,7 +19,6 @@ const gameRules = 'Answer "yes" if given number is prime, otherwise answer "no".
 const gameRound = () => {
   const question = randomizer(minNumber, maxNumber);
   const correctAnswer = isPrime(question) ? 'yes' : 'no';
-
   return roundQuestionAnswer(question, correctAnswer);
 };
 
