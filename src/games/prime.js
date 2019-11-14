@@ -15,16 +15,14 @@ const isPrime = (number) => {
 const minNumber = 1;
 const maxNumber = 256;
 
-const runPrimeGame = () => {
-  const gameRules = 'Answer "yes" if given number is prime, otherwise answer "no".';
-  const gameRound = () => {
-    const question = randomizer(minNumber, maxNumber);
-    const correctAnswer = isPrime(question) ? 'yes' : 'no';
+const gameRules = 'Answer "yes" if given number is prime, otherwise answer "no".';
+const gameRound = () => {
+  const question = randomizer(minNumber, maxNumber);
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
 
-    return roundQuestionAnswer(question, correctAnswer);
-  };
-
-  gameEngine(gameRules, gameRound);
+  return roundQuestionAnswer(question, correctAnswer);
 };
+
+const runPrimeGame = () => gameEngine(gameRules, gameRound);
 
 export default runPrimeGame;
