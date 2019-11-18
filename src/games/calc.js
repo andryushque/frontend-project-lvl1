@@ -1,17 +1,17 @@
-import randomizer from '../randomizer';
+import { getRandomNum } from '../utils';
 import { gameEngine, roundQuestionAnswer } from '../gameEngine';
 
-const minNumber = 2;
-const maxNumber = 20;
+const minRandomNum = 2;
+const maxRandomNum = 20;
+const operationSet = '+-*';
 
-const gameRules = 'What is the result of the expression?';
-const gameRound = () => {
-  const number1 = randomizer(minNumber, maxNumber);
-  const number2 = randomizer(minNumber, maxNumber);
+const gameDescription = 'What is the result of the expression?';
+const makeRound = () => {
+  const number1 = getRandomNum(minRandomNum, maxRandomNum);
+  const number2 = getRandomNum(minRandomNum, maxRandomNum);
 
-  const operationString = '+-*';
-  const j = randomizer(0, operationString.length - 1);
-  const operation = operationString[j];
+  const index = getRandomNum(0, operationSet.length - 1);
+  const operation = operationSet[index];
   const question = `${number1} ${operation} ${number2}`;
 
   const answer = () => {
@@ -30,6 +30,6 @@ const gameRound = () => {
   return roundQuestionAnswer(question, correctAnswer);
 };
 
-const runCalcGame = () => gameEngine(gameRules, gameRound);
+const runCalcGame = () => gameEngine(gameDescription, makeRound);
 
 export default runCalcGame;

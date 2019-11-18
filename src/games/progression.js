@@ -1,4 +1,4 @@
-import randomizer from '../randomizer';
+import { getRandomNum } from '../utils';
 import { gameEngine, roundQuestionAnswer } from '../gameEngine';
 
 const minFirstMember = 1;
@@ -12,18 +12,18 @@ const maxPosition = 9;
 
 const membersCount = 10;
 
-const gameRules = 'What number is missing in the progression?';
-const gameRound = () => {
-  const firstMember = randomizer(minFirstMember, maxFirstMember);
-  const difference = randomizer(minDifference, maxDifference);
-  const positionOfMissingNumber = randomizer(minPosition, maxPosition);
+const gameDescription = 'What number is missing in the progression?';
+const makeRound = () => {
+  const firstMember = getRandomNum(minFirstMember, maxFirstMember);
+  const difference = getRandomNum(minDifference, maxDifference);
+  const positionOfMissingNumber = getRandomNum(minPosition, maxPosition);
 
   let progression = '';
   for (let n = 0; n < membersCount; n += 1) {
     if (n === positionOfMissingNumber) {
-      progression += '.. ';
+      progression = `${progression} ..`;
     } else {
-      progression += `${firstMember + (n * difference)} `;
+      progression = `${progression} ${firstMember + (n * difference)}`;
     }
   }
 
@@ -33,6 +33,6 @@ const gameRound = () => {
   return roundQuestionAnswer(question, correctAnswer);
 };
 
-const runProgressionGame = () => gameEngine(gameRules, gameRound);
+const runProgressionGame = () => gameEngine(gameDescription, makeRound);
 
 export default runProgressionGame;

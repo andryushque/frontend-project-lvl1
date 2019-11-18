@@ -1,4 +1,4 @@
-import randomizer from '../randomizer';
+import { getRandomNum } from '../utils';
 import { gameEngine, roundQuestionAnswer } from '../gameEngine';
 
 const greatestCommonDivisor = (a, b) => {
@@ -8,13 +8,13 @@ const greatestCommonDivisor = (a, b) => {
   return greatestCommonDivisor(b, a % b);
 };
 
-const minNumber = 1;
-const maxNumber = 100;
+const minRandomNum = 1;
+const maxRandomNum = 100;
 
-const gameRules = 'Find the greatest common divisor of given numbers.';
-const gameRound = () => {
-  const number1 = randomizer(minNumber, maxNumber);
-  const number2 = randomizer(minNumber, maxNumber);
+const gameDescription = 'Find the greatest common divisor of given numbers.';
+const makeRound = () => {
+  const number1 = getRandomNum(minRandomNum, maxRandomNum);
+  const number2 = getRandomNum(minRandomNum, maxRandomNum);
 
   const question = `${number1} ${number2}`;
   const answer = greatestCommonDivisor(number1, number2);
@@ -22,6 +22,6 @@ const gameRound = () => {
   return roundQuestionAnswer(question, correctAnswer);
 };
 
-const runGreatestCommonDivisorGame = () => gameEngine(gameRules, gameRound);
+const runGreatestCommonDivisorGame = () => gameEngine(gameDescription, makeRound);
 
 export default runGreatestCommonDivisorGame;

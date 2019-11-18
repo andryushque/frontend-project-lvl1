@@ -1,4 +1,4 @@
-import randomizer from '../randomizer';
+import { getRandomNum } from '../utils';
 import { gameEngine, roundQuestionAnswer } from '../gameEngine';
 
 const isPrime = (number) => {
@@ -12,16 +12,16 @@ const isPrime = (number) => {
   }
   return true;
 };
-const minNumber = 1;
-const maxNumber = 256;
+const minRandomNum = 1;
+const maxRandomNum = 256;
 
-const gameRules = 'Answer "yes" if given number is prime, otherwise answer "no".';
-const gameRound = () => {
-  const question = randomizer(minNumber, maxNumber);
+const gameDescription = 'Answer "yes" if given number is prime, otherwise answer "no".';
+const makeRound = () => {
+  const question = getRandomNum(minRandomNum, maxRandomNum);
   const correctAnswer = isPrime(question) ? 'yes' : 'no';
   return roundQuestionAnswer(question, correctAnswer);
 };
 
-const runPrimeGame = () => gameEngine(gameRules, gameRound);
+const runPrimeGame = () => gameEngine(gameDescription, makeRound);
 
 export default runPrimeGame;

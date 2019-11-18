@@ -1,15 +1,11 @@
-import { cons, car, cdr } from '@hexlet/pairs';
 import readlineSync from 'readline-sync';
-
-const roundQuestionAnswer = (question, answer) => cons(question, answer);
-const getQuestion = (round) => car(round);
-const getAnswer = (round) => cdr(round);
+import { roundQuestionAnswer, getQuestion, getAnswer } from './utils';
 
 const roundCount = 3;
 
-const gameEngine = (gameRules, gameRound) => {
+const gameEngine = (gameDescription, makeRound) => {
   console.log('Welcome to the Brain Games!');
-  console.log(gameRules);
+  console.log(gameDescription);
   console.log();
 
   const name = readlineSync.question('Please, enter your name here: ');
@@ -17,18 +13,18 @@ const gameEngine = (gameRules, gameRound) => {
   console.log();
 
   for (let i = 0; i < roundCount; i += 1) {
-    const singleRound = gameRound();
+    const singleRound = makeRound();
     const gameQuestion = getQuestion(singleRound);
     const correctAnswer = getAnswer(singleRound);
 
     console.log(`Question: ${gameQuestion}`);
 
-    const yourAnswer = readlineSync.question('Your answer is: ');
+    const userAnswer = readlineSync.question('Your answer is: ');
 
-    if (yourAnswer === correctAnswer) {
+    if (userAnswer === correctAnswer) {
       console.log('Correct!');
     } else {
-      console.log(`'${yourAnswer}' is wrong answer ;((. Correct answer was '${correctAnswer}' =)`);
+      console.log(`'${userAnswer}' is wrong answer ;((. Correct answer was '${correctAnswer}' =)`);
       console.log(`Let's try again, ${name}!`);
       return;
     }
