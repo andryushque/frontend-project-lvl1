@@ -1,8 +1,13 @@
 {
   "name": "hexlet-brain-games-andryushque",
-  "version": "1.7.8",
+  "version": "1.7.9",
   "description": "Hexlet Project#1 - Brain Games",
-  "keywords": "hexlet frontend javascript brain-games",
+  "keywords": [
+    "hexlet",
+    "frontend",
+    "javascript",
+    "brain-games"
+  ],
   "bin": {
     "brain-even": "dist/bin/brain-even.js",
     "brain-calc": "dist/bin/brain-calc.js",
