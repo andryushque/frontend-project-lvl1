@@ -12,12 +12,12 @@ const isPrime = (number) => {
   }
   return true;
 };
-const minRandomNum = 1;
-const maxRandomNum = 256;
+const min = 1;
+const max = 256;
 
 const gameDescription = 'Answer "yes" if given number is prime, otherwise answer "no".';
 const makeRound = () => {
-  const question = getRandomNum(minRandomNum, maxRandomNum);
+  const question = getRandomNum(min, max);
   const correctAnswer = isPrime(question) ? 'yes' : 'no';
   return roundQuestionAnswer(question, correctAnswer);
 };
