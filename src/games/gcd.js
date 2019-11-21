@@ -1,5 +1,5 @@
-import { getRandomNum } from '../utils';
-import { gameEngine, roundQuestionAnswer } from '../gameEngine';
+import { getRandomNum, getQuestionAnswer } from '../utils';
+import runGame from '../gameEngine';
 
 const getGreatestCommonDivisor = (a, b) => {
   if (b === 0) {
@@ -17,11 +17,8 @@ const makeRound = () => {
   const number2 = getRandomNum(min, max);
 
   const question = `${number1} ${number2}`;
-  const answer = getGreatestCommonDivisor(number1, number2);
-  const correctAnswer = String(answer);
-  return roundQuestionAnswer(question, correctAnswer);
+  const correctAnswer = String(getGreatestCommonDivisor(number1, number2));
+  return getQuestionAnswer(question, correctAnswer);
 };
 
-const runGreatestCommonDivisorGame = () => gameEngine(gameDescription, makeRound);
-
-export default runGreatestCommonDivisorGame;
+export default () => runGame(gameDescription, makeRound);

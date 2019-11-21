@@ -1,5 +1,5 @@
-import { getRandomNum } from '../utils';
-import { gameEngine, roundQuestionAnswer } from '../gameEngine';
+import { getRandomNum, getQuestionAnswer } from '../utils';
+import runGame from '../gameEngine';
 
 const isEven = (num) => num % 2 === 0;
 const min = 1;
@@ -9,9 +9,7 @@ const gameDescription = 'Answer "yes" if given number is even, otherwise answer 
 const makeRound = () => {
   const question = getRandomNum(min, max);
   const correctAnswer = isEven(question) ? 'yes' : 'no';
-  return roundQuestionAnswer(question, correctAnswer);
+  return getQuestionAnswer(question, correctAnswer);
 };
 
-const runEvenGame = () => gameEngine(gameDescription, makeRound);
-
-export default runEvenGame;
+export default () => runGame(gameDescription, makeRound);

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import runGreatestCommonDivisorGame from '../games/gcd';
+import runGame from '../games/gcd';
 
-runGreatestCommonDivisorGame();
+runGame();

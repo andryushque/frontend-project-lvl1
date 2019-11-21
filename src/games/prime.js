@@ -1,5 +1,5 @@
-import { getRandomNum } from '../utils';
-import { gameEngine, roundQuestionAnswer } from '../gameEngine';
+import { getRandomNum, getQuestionAnswer } from '../utils';
+import runGame from '../gameEngine';
 
 const isPrime = (number) => {
   if (number <= 1) {
@@ -19,9 +19,7 @@ const gameDescription = 'Answer "yes" if given number is prime, otherwise answer
 const makeRound = () => {
   const question = getRandomNum(min, max);
   const correctAnswer = isPrime(question) ? 'yes' : 'no';
-  return roundQuestionAnswer(question, correctAnswer);
+  return getQuestionAnswer(question, correctAnswer);
 };
 
-const runPrimeGame = () => gameEngine(gameDescription, makeRound);
-
-export default runPrimeGame;
+export default () => runGame(gameDescription, makeRound);
